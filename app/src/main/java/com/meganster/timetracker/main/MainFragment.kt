@@ -1,18 +1,16 @@
 package com.meganster.timetracker.main
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import com.meganster.timetracker.R
-import dagger.android.support.DaggerFragment
+import com.meganster.timetracker.di.FragmentWithViewModel
+import com.meganster.timetracker.di.MainViewModelFactory
 
-class MainFragment : DaggerFragment() {
+class MainFragment : FragmentWithViewModel<MainViewModel, MainViewModelFactory>() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
-    }
+    override val layout = R.layout.fragment_main
+    override val classType = MainViewModel::class.java
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

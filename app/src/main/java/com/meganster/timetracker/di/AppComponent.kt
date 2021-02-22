@@ -9,7 +9,8 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AppModule::class,
-        DataSourceModule::class
+        DataSourceModule::class,
+        AbstractDataModule::class
     ]
 )
 interface AppComponent : AndroidInjector<App> {

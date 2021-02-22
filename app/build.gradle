@@ -19,9 +19,9 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += [
-                        "room.schemaLocation":"$projectDir/schemas".toString(),
-                        "room.incremental":"true",
-                        "room.expandProjection":"true"]
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
             }
         }
     }
@@ -45,6 +45,9 @@ dependencies {
     def ROOM = "2.2.6"
     def DAGGER = "2.31.2"
     def GSON = "2.8.6"
+    def LIFECYCLE = "2.2.0"
+    def RX_JAVA = "2.2.8"
+    def RX_ANDROID = "2.1.1"
 
     implementation "androidx.room:room-runtime:$ROOM"
     kapt "androidx.room:room-compiler:$ROOM"
@@ -52,12 +55,16 @@ dependencies {
 
     implementation "com.google.dagger:dagger:$DAGGER"
     kapt "com.google.dagger:dagger-compiler:$DAGGER"
-    implementation "com.google.dagger:dagger-android:$DAGGER"
     implementation "com.google.dagger:dagger-android-support:$DAGGER"
     annotationProcessor "com.google.dagger:dagger-android-processor:$DAGGER"
     kapt "com.google.dagger:dagger-android-processor:$DAGGER"
 
     implementation "com.google.code.gson:gson:$GSON"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$LIFECYCLE"
+
+    implementation "io.reactivex.rxjava2:rxjava:$RX_JAVA"
+    implementation "io.reactivex.rxjava2:rxandroid:$RX_ANDROID"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
